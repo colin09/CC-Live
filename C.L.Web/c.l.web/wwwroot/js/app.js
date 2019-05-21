@@ -16,4 +16,38 @@ module.controller('VideoCtl', function ($scope, $http) {
             console.write(result);
         });
     }
+
+    $scope.showVideoModel = function (url) {
+        $("#videoModalCenter").modal({
+            keyboard: false
+        });
+        initVideo();
+    }
+
+
+    function initVideo(url) {
+        url = "https://vjs.zencdn.net/v/oceans.mp4";
+        var options = {
+            autoplay: false,
+            loop: false,
+            poster: "",
+            preload: "auto",
+            sources: [{
+                src: url,
+                type: "video/mp4"
+            }]
+        };
+        var player = videojs('my-video', options, function onPlayerReady() {
+            videojs.log("video player is ready");
+            this.player();  //播放
+            // this.pause();   //暂停
+            // this.dispose(); //销毁
+            this.on('ended', function () {
+                videojs.log("video player is over.");
+            });
+        });
+
+    }
+
+
 });

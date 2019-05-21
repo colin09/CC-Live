@@ -2,6 +2,7 @@
     ViewData["Title"] = "Video";
 }
 
+  <link href="https://vjs.zencdn.net/7.5.4/video-js.css" rel="stylesheet">
 <div class="text-center" ng-controller="VideoCtl">
     <h1 class="display-4">Welcome</h1>
 
@@ -14,14 +15,14 @@
         </div>
     <div>
         <div class="media border-bottom margin-bottom3" >
-            <img class="mr-3" src="../img/64.svg" alt="Generic placeholder image">
+            <a href="" ng-click="showVideoModel('')" ><img class="mr-3" src="../img/64.svg" alt="Generic placeholder image"></a>
             <div class="media-body">
                 <h5 class="mt-0">Media heading</h5>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. 
             </div>
         </div>
         <div class="media border-bottom" ng-repeat="item in ResourceList">
-            <a href="{{item.url}}" target="_blank"> <img class="mr-3" src="../img/64.svg" alt="item.name"></a>
+            <a href="" ng-click="showVideoModel(item.url)" > <img class="mr-3" src="../img/64.svg" alt="item.name" ng-click="showVideoModel()"></a>
             <div class="media-body">
                 <h5 class="mt-0" ng-bind="item.name">Media heading</h5>
                 [{{item.md5}}] | {{item.tags}} | {{item.createTime}}
@@ -30,4 +31,47 @@
    </div>
 
 
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#videoModalCenter">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade  bd-example-modal-lg" id="videoModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <video id='my-video' class='video-js' controls preload='auto' width='640' height='264'
+        poster='MY_VIDEO_POSTER.jpg' >
+            <p class='vjs-no-js'>
+            To view this video please enable JavaScript, and consider upgrading to a web browser that
+            <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
+            </p>
+        </video>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
 </div>
+</div>
+
+
+@section Scripts{
+
+  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+  <!-- <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
+
+  
+  <script src='https://vjs.zencdn.net/7.5.4/video.js'></script>
+}
