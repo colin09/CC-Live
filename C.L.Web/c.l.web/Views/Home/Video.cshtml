@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Video";
+}
+
+<div class="text-center" ng-controller="VideoCtl">
+    <h1 class="display-4">Welcome</h1>
+
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Recipient's username" ng-model="searchKey">
+            <div class="input-group-append">
+                <!-- <span class="input-group-text" id="basic-addon2">example.com</span> -->
+                <button class="input-group-text" ng-click="btnSearch()"> SEARCH </button>
+            </div>
+        </div>
+    <div>
+        <div class="media border-bottom margin-bottom3" >
+            <img class="mr-3" src="../img/64.svg" alt="Generic placeholder image">
+            <div class="media-body">
+                <h5 class="mt-0">Media heading</h5>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. 
+            </div>
+        </div>
+        <div class="media border-bottom" ng-repeat="item in ResourceList">
+            <a href="{{item.url}}" target="_blank"> <img class="mr-3" src="../img/64.svg" alt="item.name"></a>
+            <div class="media-body">
+                <h5 class="mt-0" ng-bind="item.name">Media heading</h5>
+                [{{item.md5}}] | {{item.tags}} | {{item.createTime}}
+            </div>
+        </div>
+   </div>
+
+
+</div>
