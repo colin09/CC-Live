@@ -1,6 +1,7 @@
 using System;
 using System.Security.Claims;
 using c.l.common.helper;
+using c.l.models.bases;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -38,7 +39,7 @@ namespace c.l.common.Mvc
         }
 
     }
-
+    /*
     public class CurrentUser
     {
         public int Id { set; get; }
@@ -49,6 +50,8 @@ namespace c.l.common.Mvc
         public string Gender { set; get; }
         public string Email { set; get; }
         public string MobileNo { set; get; }
-    }
+
+        public int Encryption { set; get; }=0;
+    }*/
 
 }

@@ -19,7 +19,7 @@ namespace c.l.common.helper
             for (int i = 0; i < t.Length; i++)
                 sb.Append(t[i].ToString("x").PadLeft(2, '0'));
 
-            Console.WriteLine(sb.ToString());
+            // Console.WriteLine(sb.ToString());
             return sb.ToString();
         }
 

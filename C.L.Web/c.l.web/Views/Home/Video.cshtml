@@ -15,18 +15,23 @@
         </div>
     <div>
         <div class="media border-bottom margin-bottom3" >
-            <a href="" ng-click="showVideoModel('')" ><img class="mr-3" src="../img/64.svg" alt="Generic placeholder image"></a>
+            <a href="" ng-click="showVideoModel('')" ><img class="mr-3" src="../img/vi-1.jpg" alt="Generic placeholder image" style="height:64px;"></a>
             <div class="media-body">
                 <h5 class="mt-0">Media heading</h5>
                 Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. 
             </div>
         </div>
         <div class="media border-bottom" ng-repeat="item in ResourceList">
-            <a href="" ng-click="showVideoModel(item.url)" > <img class="mr-3" src="../img/64.svg" alt="item.name" ng-click="showVideoModel()"></a>
+        
+            <a href="" ng-click="showVideoModel(item.url)" > <img class="mr-3" src="../img/vi-1.jpg" alt="item.name" style="height:64px;"></a>
             <div class="media-body">
                 <h5 class="mt-0" ng-bind="item.name">Media heading</h5>
                 [{{item.md5}}] | {{item.tags}} | {{item.createTime}}
             </div>
+          <div>
+              <button ng-click='SetVideoLevel(item.id,666)'>LOGIN</button>
+              <button ng-click='SetVideoLevel(item.id,999)'>NONE</button>
+          </div>
         </div>
    </div>
 
@@ -39,7 +44,7 @@
 
 <!-- Modal -->
 <div class="modal fade  bd-example-modal-lg" id="videoModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:700px;">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
@@ -49,7 +54,7 @@
       </div>
       <div class="modal-body">
         <video id='my-video' class='video-js' controls preload='auto' width='640' height='264'
-        poster='MY_VIDEO_POSTER.jpg' >
+        poster='../img/vb-1.jpg' >
             <p class='vjs-no-js'>
             To view this video please enable JavaScript, and consider upgrading to a web browser that
             <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
