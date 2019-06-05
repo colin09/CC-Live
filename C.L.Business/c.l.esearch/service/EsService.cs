@@ -77,7 +77,7 @@ namespace c.l.esearch.service
                .Query(q => q.Term(f => f.Id, id))
             );
             // System.Console.WriteLine (result.Documents.ToJson ());
-            System.Console.WriteLine($"{result.Documents.Count()}/{result.Total} , in {result.Took}ms");
+            //System.Console.WriteLine($"{result.Documents.Count()}/{result.Total} , in {result.Took}ms");
             return result.Documents.FirstOrDefault();
         }
     }

@@ -22,7 +22,7 @@ namespace c.l.fileScan.handler
         }
         public void Excute()
         {
-            // esResourceService.DeleteInex();
+             esResourceService.DeleteInex();
             rootPath = @"G:\Video\";
             //path = Directory.GetCurrentDirectory ();
             ReadDirectory(rootPath);

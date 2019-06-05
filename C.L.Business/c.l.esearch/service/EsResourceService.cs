@@ -20,12 +20,12 @@ namespace c.l.esearch.service
                .Query(q =>
                    {
                        var query = q.Range(m => m.Field(f => f.EncryptionLevel).LessThanOrEquals(entryption));
-                       query = query & q.Match(m => m.Field(f => f.Name).Query(key));
+                       query = query & q.Match(m => m.Field(f => f.Tags).Query(key));
                        return query;
                    })
             );
             // System.Console.WriteLine (result.Documents.ToJson ());
-            System.Console.WriteLine($"{result.Documents.Count()}/{result.Total} , in {result.Took}ms");
+            //System.Console.WriteLine($"{result.Documents.Count()}/{result.Total} , in {result.Took}ms");
             return result.Documents.ToArray();
         }
     }
