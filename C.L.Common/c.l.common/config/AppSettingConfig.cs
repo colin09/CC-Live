@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using System.Collections.Generic;
+using c.l.common.helper;
 using Microsoft.Extensions.Configuration;
 
 namespace c.l.common.config {
@@ -26,6 +27,25 @@ namespace c.l.common.config {
 
         public static string Get (string key) => Configuration[key];
 
+        public static IEnumerable<IConfigurationSection> GetChildren () {
+            return Configuration.GetChildren ();
+        }
+        public static IEnumerable<IConfigurationSection> GetChildren (string key) {
+            var section = Configuration.GetSection (key);
+            return section.GetChildren ();
+        }
+
+        private static void GetSectionList (string key) {
+            var section = Configuration.GetSection (key);
+            System.Console.WriteLine (section.GetChildren ());
+            foreach (var item in section.GetChildren ()) {
+                System.Console.WriteLine (item.ToJson ());
+
+                var root = Get ($"{item.Path}:root");
+                var url = Get ($"{item.Path}:url");
+                System.Console.WriteLine ($"root:{root}, url:{url}");
+            }
+        }
         /*
         public static string MqHost
         {
