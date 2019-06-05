@@ -29,8 +29,16 @@
                 [{{item.md5}}] | {{item.tags}} | {{item.createTime}}
             </div>
           <div>
-              <button ng-click='SetVideoLevel(item.id,666)'>LOGIN</button>
-              <button ng-click='SetVideoLevel(item.id,999)'>NONE</button>
+            <div class="margin-top2">
+            <button type="button" class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
+            <button type="button" class="layui-btn layui-btn-sm"><i class="layui-icon"></i></button>
+            </div>
+            <div class="margin-top2">
+            <button type="button" class="layui-btn layui-btn-sm" ng-click='SetVideoLevel(item.id,666)'><i class="layui-icon">限</i></button>
+            <button type="button" class="layui-btn layui-btn-sm" ng-click='SetVideoLevel(item.id,999)'><i class="layui-icon">隐</i></button>
+            <!-- <button ng-click='SetVideoLevel(item.id,666)'>LOGIN</button>
+            <button ng-click='SetVideoLevel(item.id,999)'>NONE</button> -->
+            </div>
           </div>
         </div>
    </div>
