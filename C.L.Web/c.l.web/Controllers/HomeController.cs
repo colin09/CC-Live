@@ -19,6 +19,9 @@ namespace c.l.web.Controllers {
         public IActionResult Privacy () {
             return View ();
         }
+        public IActionResult Spider () {
+            return View ();
+        }
 
         [ResponseCache (Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error () {

@@ -9,20 +9,19 @@ using c.l.esearch.data;
 using c.l.esearch.service;
 using c.l.models.enums;
 
-namespace c.l.fileScan.handler
+namespace c.l.spider
 {
-    public class FileScaner
+    public class FileScan
     {
 
         EsResourceService esResourceService;
         private string rootPath = "";
         private string urlPath = "";
-        public FileScaner()
+        public FileScan()
         {
             esResourceService = new EsResourceService();
         }
         public void Excute()
-
         { 
             var sections=  AppSettingConfig.GetChildren("ResourceList");
             foreach(var item in sections){

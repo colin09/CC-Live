@@ -1,0 +1,10 @@
+#####################################################
+run LOG
+
+
+1.ElasticSearch
+    docker exec -it [elasticsearch1] /bash/bin
+    ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v5.5.2/elasticsearch-analysis-ik-5.5.2.zip (版本要匹配)
+    docker restart [elasticsearch1]
+
+
