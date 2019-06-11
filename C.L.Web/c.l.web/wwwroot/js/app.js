@@ -3,10 +3,10 @@ var module = angular.module('LiveApp', []);
 
 module.controller('VideoCtl', function ($scope, $http) {
     $scope.pager = { pageIndex: 1, pageSize: 50, totalPage: 1 };
-    $scope.searchKey = "白蛇";
+    $scope.searchKey = "";
     $scope.ResourceList = [];
 
-    initVideo();
+    //initVideo();
 
     $scope.btnSearch = function () {
 
@@ -18,8 +18,16 @@ module.controller('VideoCtl', function ($scope, $http) {
             console.write(result);
         });
     }
+    $scope.modifVodieInfo = function(item){
+        $scope.currentVideo=item;
+    }
+    $scope.saveVodieInfo = function(){
 
-    $scope.showVideoModel = function (url) {
+
+    }
+    $scope.btnSearch();
+
+    $scope.showVideoModel = function (item) {
         $("#videoModalCenter").modal({
             backdrop: false,
             keyboard: false
@@ -35,7 +43,9 @@ module.controller('VideoCtl', function ($scope, $http) {
             //videojs('my-video').dispose();
             console.log("hidden");
         });
-        setVideo(url);
+
+        $scope.currentVideo = item;
+        setVideo(item.url);
     }
 
 
