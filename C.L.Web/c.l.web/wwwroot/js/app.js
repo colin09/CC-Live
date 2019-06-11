@@ -18,11 +18,15 @@ module.controller('VideoCtl', function ($scope, $http) {
             console.write(result);
         });
     }
-    $scope.modifVodieInfo = function(item){
-        $scope.currentVideo=item;
+    $scope.modifVodieInfo = function (item) {
+        $scope.currentVideo = item;
     }
-    $scope.saveVodieInfo = function(){
-
+    $scope.saveVodieInfo = function () {
+        $http.post("/Resource/Modify", { model: $scope.currentVideo }).then(function (result) {
+            var response = result.data;
+            if (response.success)
+                $scope.btnSearch();
+        });
 
     }
     $scope.btnSearch();

@@ -8,6 +8,7 @@ using c.l.models.bases;
 using c.l.web.Models;
 using c.l.common.Mvc;
 using Microsoft.AspNetCore.Mvc;
+using c.l.esearch.data;
 
 namespace c.l.web.Controllers
 {
@@ -36,6 +37,18 @@ namespace c.l.web.Controllers
                 case 99: resource.EncryptionLevel = value; break;
             }
             _resourceService.Index(resource);
+            return Json(BaseResponse.SuccessResponse());
+        }
+
+        [HttpPost]
+        public IActionResult Modify([FromBody]EsResource model){
+
+            var resource = _resourceService.Get(model.Id);
+            resource.Name= model.Name;
+            resource.Tags = model.Tags;
+            resource.UpdateTime = DateTime.Now;
+            _resourceService.Index(resource);
+
             return Json(BaseResponse.SuccessResponse());
         }
 
