@@ -13,6 +13,11 @@
                 <button class="input-group-text" ng-click="btnSearch()"> SEARCH </button>
             </div>
         </div>
+        
+    <div class="layui-box layui-laypage layui-laypage-default" >
+      <a href="javascript:;" class="layui-laypage-prev" ng-click="pageChange(-1)" >上一页</a>
+      <a href="javascript:;" class="layui-laypage-next" ng-click="pageChange(1)" >下一页</a>
+    </div>
     <div>
         <!-- <div class="media border-bottom margin-bottom3" >
             <a href="" ng-click="showVideoModel('')" ><img class="mr-3" src="../img/vi-1.jpg" alt="Generic placeholder image" style="height:64px;"></a>
@@ -41,14 +46,13 @@
             </div>
           </div>
         </div>
+  <div>
+    <div class="layui-box layui-laypage layui-laypage-default" >
+      <a href="javascript:;" class="layui-laypage-prev" ng-click="pageChange(-1)" >上一页</a>
+      <a href="javascript:;" class="layui-laypage-next" ng-click="pageChange(1)" >下一页</a>
+    </div>
 
-
-
-
-<!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#videoModalCenter">
-  Launch demo modal
-</button> -->
+ 
 
 
 
@@ -75,13 +79,19 @@
             <div class="layui-input-block">
               <textarea placeholder="tags" class="layui-textarea" ng-model="currentVideo.tags"></textarea>
             </div>
+            <div class="layui-form-item">
+            <label class="layui-form-label">url:</label>
+            <div class="layui-input-block">
+              <span ng-bind="currentVideo.url"></span>
+            </div>
+          </div>
           </div>
         </form>
 
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" ng-click="saveVodieInfo">Save changes</button>
+        <button type="button" class="btn btn-primary" ng-click="saveVodieInfo()">Save changes</button>
       </div>
     </div>
   </div>

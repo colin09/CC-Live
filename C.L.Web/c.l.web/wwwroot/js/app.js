@@ -2,14 +2,18 @@
 var module = angular.module('LiveApp', []);
 
 module.controller('VideoCtl', function ($scope, $http) {
-    $scope.pager = { pageIndex: 1, pageSize: 50, totalPage: 1 };
+    $scope.pager = { pageIndex: 1, pageSize: 20, totalPage: 1 };
     $scope.searchKey = "";
     $scope.ResourceList = [];
 
     //initVideo();
 
     $scope.btnSearch = function () {
+        $scope.pager.pageIndex = 1;
+        $scope.searchList();
+    }
 
+    $scope.searchList = function () {
         $http.get("/Resource/search?pageIndex=" + $scope.pager.pageIndex + "&pageSize=" + $scope.pager.pageSize + "&key=" + $scope.searchKey).then(function (result) {
             var response = result.data;
             if (response.success)
@@ -18,14 +22,26 @@ module.controller('VideoCtl', function ($scope, $http) {
             console.write(result);
         });
     }
+
+    $scope.pageChange = function (change) {
+        $scope.pager.pageIndex += change;
+        if ($scope.pager.pageIndex < 1) $scope.pager.pageIndex = 1;
+        $scope.searchList();
+    }
+
     $scope.modifVodieInfo = function (item) {
         $scope.currentVideo = item;
+        $("#ModifyModalCenter").modal({
+            backdrop: false,
+            keyboard: false
+        })
     }
     $scope.saveVodieInfo = function () {
-        $http.post("/Resource/Modify", { model: $scope.currentVideo }).then(function (result) {
+        $http.post("/Resource/Modify", { Id: $scope.currentVideo.id, Name: $scope.currentVideo.name, Tags: $scope.currentVideo.tags }).then(function (result) {
             var response = result.data;
             if (response.success)
-                $scope.btnSearch();
+                $scope.searchList();
+            $("#ModifyModalCenter").modal("hide");
         });
 
     }
@@ -87,7 +103,7 @@ module.controller('VideoCtl', function ($scope, $http) {
         $http.post(url, { id: id, option: 99, value: level }).then(function (result) {
             var response = result.data;
             if (response.success)
-                $scope.btnSearch();
+                $scope.searchList();
         });
     }
 

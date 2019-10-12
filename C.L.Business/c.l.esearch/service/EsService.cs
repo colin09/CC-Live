@@ -75,6 +75,7 @@ namespace c.l.esearch.service
                //.Index (IndexName.From<EsContent>())
                .Index(_indexName)
                .Query(q => q.Term(f => f.Id, id))
+            //    .Query(q => q.Term(t => t.OnField(f => f.Id).Value(7)))
             );
             // System.Console.WriteLine (result.Documents.ToJson ());
             //System.Console.WriteLine($"{result.Documents.Count()}/{result.Total} , in {result.Took}ms");
