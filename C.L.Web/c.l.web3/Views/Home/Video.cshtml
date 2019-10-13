@@ -1,0 +1,138 @@
+﻿@{
+    ViewData["Title"] = "L.Video";
+}
+
+  <link href="~/css/video-js.css" rel="stylesheet">
+<div class="text-center" ng-controller="VideoCtl">
+    <h1 class="display-4">Welcome</h1>
+
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Recipient's username" ng-model="searchKey">
+            <div class="input-group-append">
+                <!-- <span class="input-group-text" id="basic-addon2">example.com</span> -->
+                <button class="input-group-text" ng-click="btnSearch()"> SEARCH </button>
+            </div>
+        </div>
+        
+    <div class="layui-box layui-laypage layui-laypage-default" >
+      <a href="javascript:;" class="layui-laypage-prev" ng-click="pageChange(-1)" >上一页</a>
+      <a href="javascript:;" class="layui-laypage-next" ng-click="pageChange(1)" >下一页</a>
+    </div>
+    <div>
+        <!-- <div class="media border-bottom margin-bottom3" >
+            <a href="" ng-click="showVideoModel('')" ><img class="mr-3" src="../img/vi-1.jpg" alt="Generic placeholder image" style="height:64px;"></a>
+            <div class="media-body">
+                <h5 class="mt-0">Media heading</h5>
+                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. 
+            </div>
+        </div> -->
+        <div class="media border-bottom" ng-repeat="item in ResourceList">
+        
+            <a href="" ng-click="showVideoModel(item)" > <img class="mr-3" src="../img/vi-1.jpg" alt="item.name" style="height:64px;"></a>
+            <div class="media-body">
+                <h5 class="mt-0" ng-bind="item.name">Media heading</h5>
+                <!-- [{{item.md5}}] | {{item.tags}} | {{item.createTime}} -->
+            </div>
+          <div>
+            <div class="margin-top2">
+            <button type="button" class="layui-btn layui-btn-sm" ng-click="modifVodieInfo(item)"><i class="layui-icon"></i></button>
+            <button type="button" class="layui-btn layui-btn-sm" ng-click="modifVodieInfo(item)"><i class="layui-icon"></i></button>
+            </div>
+            <div class="margin-top2">
+            <button type="button" class="layui-btn layui-btn-sm" ng-click='SetVideoLevel(item.id,666)'><i class="layui-icon">限</i></button>
+            <button type="button" class="layui-btn layui-btn-sm" ng-click='SetVideoLevel(item.id,999)'><i class="layui-icon">隐</i></button>
+            <!-- <button ng-click='SetVideoLevel(item.id,666)'>LOGIN</button>
+            <button ng-click='SetVideoLevel(item.id,999)'>NONE</button> -->
+            </div>
+          </div>
+        </div>
+  <div>
+    <div class="layui-box layui-laypage layui-laypage-default" >
+      <a href="javascript:;" class="layui-laypage-prev" ng-click="pageChange(-1)" >上一页</a>
+      <a href="javascript:;" class="layui-laypage-next" ng-click="pageChange(1)" >下一页</a>
+    </div>
+
+ 
+
+
+
+<!-- Modal -->
+<div class="modal fade  bd-example-modal-lg" id="ModifyModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:700px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle" ng-bind="currentVideo.name">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="layui-form" action="">
+          <div class="layui-form-item">
+            <label class="layui-form-label">name:</label>
+            <div class="layui-input-block">
+              <input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="name" class="layui-input" ng-model="currentVideo.name" />
+            </div>
+          </div>
+          <div class="layui-form-item layui-form-text">
+            <label class="layui-form-label">tags:</label>
+            <div class="layui-input-block">
+              <textarea placeholder="tags" class="layui-textarea" ng-model="currentVideo.tags"></textarea>
+            </div>
+            <div class="layui-form-item">
+            <label class="layui-form-label">url:</label>
+            <div class="layui-input-block">
+              <span ng-bind="currentVideo.url"></span>
+            </div>
+          </div>
+          </div>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" ng-click="saveVodieInfo()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!--VideoPlay Modal -->
+<div class="modal fade  bd-example-modal-lg" id="videoModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document" style="max-width:700px;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle" ng-bind="currentVideo.name">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <video id='my-video' class='video-js' controls preload='auto' width='640' height='264'
+        poster='../img/vb-1.jpg' >
+            <p class='vjs-no-js'>
+            To view this video please enable JavaScript, and consider upgrading to a web browser that
+            <a href='https://videojs.com/html5-video-support/' target='_blank'>supports HTML5 video</a>
+            </p>
+        </video>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+@section Scripts{
+
+  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+  <!-- <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
+
+  
+  <script src='~/js/video.js'></script>
+}
