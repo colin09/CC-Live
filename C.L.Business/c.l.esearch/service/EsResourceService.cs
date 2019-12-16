@@ -23,7 +23,6 @@ namespace c.l.esearch.service
                        var query = q.Range(m => m.Field(f => f.EncryptionLevel).LessThanOrEquals(entryption));
                        query = query & q.Match(m => m.Field(f => f.Tags).Query(key));
 
-
                        System.Console.WriteLine($"{query.ToString()}");
                        return query;
                    })

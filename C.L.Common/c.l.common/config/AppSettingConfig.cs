@@ -1,11 +1,44 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using c.l.common.helper;
 using Microsoft.Extensions.Configuration;
 
 namespace c.l.common.config {
-    public class AppSettingConfig {
 
+    public class ConfigBuilder {
+        static ConfigBuilder () {
+            //默认使用运行目录中的 appsettings.json 文件作为配置文件。
+            var builder = new ConfigurationBuilder ()
+                .SetBasePath (Path.Combine (AppDomain.CurrentDomain.BaseDirectory, "configurations"))
+                .AddJsonFile ("appsettings.json", optional : true, reloadOnChange : true);
+
+            string environment = Environment.GetEnvironmentVariable ("ASPNETCORE_ENVIRONMENT");
+            if (!environment.IsEmpty ()) {
+                builder = builder.AddJsonFile ($"appsettings.{environment}.json", optional : true);
+            }
+            Configuration = builder.Build ();
+        }
+
+        public static IConfigurationRoot Configuration { get; private set; }
+
+    }
+
+    public class AppSettingConfig {
+        #region   base  
         private static IConfigurationRoot Configuration = ConfigBuilder.Configuration;
+        public static T Get<T> (string key, T defaultValue = default (T)) where T : struct {
+            return Configuration.GetValue (key, defaultValue);
+        }
+        public static string Get (string key, string defaultValue = "") {
+            return Configuration.GetValue (key, defaultValue);
+        }
+        public static IConfigurationSection GetSection (string key) {
+            var section = Configuration.GetSection (key);
+            if (!section.Exists ()) return null;
+            return section;
+        }
+        #endregion
 
         public static string TDES_Key {
             get { return ""; /* ConfigurationManager.AppSettings["TDES_Key"]; */ }
@@ -13,10 +46,9 @@ namespace c.l.common.config {
         public static string TDES_IV {
             get { return ""; /* ConfigurationManager.AppSettings["TDES_IV"];*/ }
         }
+
         public static string MgConn => Get ("MgConn");
-
         public static string MgDBName => Get ("MgDBName");
-
         public static string MgPrefix => Get ("MgPrefix");
 
         public static string EsUrl => Get ("EsUrl");
@@ -24,8 +56,6 @@ namespace c.l.common.config {
         public static string EsIndexPrefix => Get ("EsIndexPrefix");
 
         public static string VideoThumbTime => Get ("VideoThumbTime");
-
-        public static string Get (string key) => Configuration[key];
 
         public static IEnumerable<IConfigurationSection> GetChildren () {
             return Configuration.GetChildren ();
