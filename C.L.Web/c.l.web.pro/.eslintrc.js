@@ -9,6 +9,7 @@ module.exports = {
   ],
   rules: {
     'no-console': 'off',
+    'indent': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'generator-star-spacing': 'off',
     'no-mixed-operators': 0,

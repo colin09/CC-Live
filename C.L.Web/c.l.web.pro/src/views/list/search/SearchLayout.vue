@@ -52,7 +52,7 @@ export default {
           }
         }
       },
-      search: true
+      search: {}
     }
   },
   computed: {

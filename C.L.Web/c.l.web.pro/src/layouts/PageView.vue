@@ -84,7 +84,7 @@ export default {
       description: null,
       linkList: [],
       extraImage: '',
-      search: false,
+      search: {},
       tabs: {}
     }
   },
@@ -113,7 +113,7 @@ export default {
           this.description = content.description
           this.linkList = content.linkList
           this.extraImage = content.extraImage
-          this.search = content.search === true
+          this.search = content.search
           this.tabs = content.tabs
         }
       }

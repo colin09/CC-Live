@@ -427,7 +427,38 @@ const userNav = (options) => {
       },
       'component': 'TestWork'
     },
-
+    // resource
+    {
+      'name': 'resource',
+      'parentId': 0,
+      'id': 11000,
+      'meta': {
+        'icon': 'form',
+        'title': 'Resource'
+      },
+      'redirect': '/hresource/vio',
+      'component': 'PageView'
+    },
+    {
+      'name': 'video',
+      'parentId': 11000,
+      'id': 11001,
+      'meta': {
+        'title': 'Video列表',
+        'show': true
+      },
+      'component': 'VideoList'
+    },
+    {
+      'name': 'image',
+      'parentId': 11000,
+      'id': 11002,
+      'meta': {
+        'title': 'Image列表',
+        'show': true
+      },
+      'component': 'ImageList'
+    },
     // form
     {
       'name': 'form',
