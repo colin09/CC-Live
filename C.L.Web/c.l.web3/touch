@@ -1,0 +1,25 @@
+## c.l.web3.dll
+
+## c.l.conf
+
+[program:cc.live]
+
+command=/bin/bash -c "dotnet c.l.web3.dll"
+
+directory=/home/cc/deploy/c.l.web
+
+stderr_logfile=/var/log/c.l.web.error.log
+
+stdout_logfile=/var/log/c.l.web.log
+
+environment=ASPNETCORE_ENVIRONMENT=dev
+
+## user=root
+
+stopsignal=INT
+
+autostart=true
+
+autorestart=true
+
+startsecs=3
