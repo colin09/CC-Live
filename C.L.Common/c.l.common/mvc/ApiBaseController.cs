@@ -9,7 +9,7 @@ namespace c.l.common.Mvc {
 
     [LoggerFilterAttribute]
     [ErrorFilterAttribute]
-    public class WeatherForecastController : ControllerBase {
+    public class ApiBaseController : ControllerBase {
         private CurrentUser _currentUser = null;
         protected CurrentUser CurrentSessionUser => GetCurrentUserInfo ();
 

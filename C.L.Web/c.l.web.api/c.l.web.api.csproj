@@ -13,5 +13,9 @@
     <ProjectReference Include="..\..\C.L.Business\c.l.esearch\c.l.esearch.csproj" />
     <ProjectReference Include="..\..\C.L.Business\c.l.spider\c.l.spider.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="4.0.1" />
+  </ItemGroup>
   
 </Project>

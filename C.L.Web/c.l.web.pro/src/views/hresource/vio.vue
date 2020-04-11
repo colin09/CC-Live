@@ -67,6 +67,7 @@ export default {
     },
     data () {
         return {
+            loading: true,
             data: [
                 { title: 'aaa', avatar: '1111111' },
                 { title: 'aaa', avatar: '1111111' },
@@ -81,6 +82,7 @@ export default {
         }
     },
      mounted () {
+         this.loading = false
      },
      methods: {
         searchData (value, event) {
