@@ -19,3 +19,17 @@ code .\
     }
     3. app.all('*', mw_demo);
 
+
+
+
+express 
+
+    1. npm install -g express-generator
+    2. express -h
+    3. express --view=pug [myapp]
+    4. npm install
+    5. DEBUG=myapp:* npm start
+
+elasticSearch
+    1. npm install @elastic/elasticsearch
+    2. 
