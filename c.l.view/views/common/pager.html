@@ -1,0 +1,42 @@
+<div class="row" ng-show="pager.total>0">
+    <div class="col-sm-12 col-md-5">
+        <div class="dataTables_info" id="basic-datatables_info" role="status" aria-live="polite">
+            {{pager.index}} / {{pageInfo.totalPage }} , {{pager.total}}
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-7">
+        <div class="dataTables_paginate paging_simple_numbers" id="basic-datatables_paginate">
+            <ul class="pagination">
+                <li class="paginate_button page-item previous disabled" id="basic-datatables_previous">
+                    <a href="javascript:void(0)" aria-controls="basic-datatables" data-dt-idx="0" tabindex="0"
+                        class="page-link prevPage">Previous</a>
+                </li>
+                <li class="paginate_button page-item " ng-repeat="item in pageInfo.items">
+                    <a href="javascript:void(0)" aria-controls="basic-datatables" data-index="{{item}}" tabindex="0"
+                        class="page-link pageGoto">{{item}}</a>
+                </li>
+                <!-- <li class="paginate_button page-item active"><a href="#" aria-controls="basic-datatables"
+                        data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+                <li class="paginate_button page-item ">
+                    <a href="#" aria-controls="basic-datatables" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+                </li>
+                <li class="paginate_button page-item ">
+                    <a href="#" aria-controls="basic-datatables" data-dt-idx="3" tabindex="0" class="page-link">3</a>
+                </li>
+                <li class="paginate_button page-item ">
+                    <a href="#" aria-controls="basic-datatables" data-dt-idx="4" tabindex="0" class="page-link">4</a>
+                </li>
+                <li class="paginate_button page-item ">
+                    <a href="#" aria-controls="basic-datatables" data-dt-idx="5" tabindex="0" class="page-link">5</a>
+                </li>
+                <li class="paginate_button page-item ">
+                    <a href="#" aria-controls="basic-datatables" data-dt-idx="6" tabindex="0" class="page-link">6</a>
+                </li> -->
+                <li class="paginate_button page-item next" id="basic-datatables_next">
+                    <a href="javascript:void(0)" aria-controls="basic-datatables" data-dt-idx="7" tabindex="0"
+                        class="page-link nextPage">Next</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

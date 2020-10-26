@@ -1,0 +1,102 @@
+<div class="sidebar sidebar-style-2" data-background-color="white">
+    <div class="scroll-wrapper sidebar-wrapper scrollbar scrollbar-inner" style="position: relative;">
+        <div class="sidebar-wrapper scrollbar scrollbar-inner scroll-content scroll-scrolly_visible">
+            <div class="sidebar-content">
+                <div class="user">
+                    <div class="avatar-sm float-left mr-2">
+                        <img src="./Assets/images/profile.jpg" alt="..." class="avatar-img rounded-circle">
+                    </div>
+                    <div class="info">
+                        <a data-toggle="collapse" href="#collapseExample" aria-expanded="false">
+                            <span>
+                                Hizrian
+                                <span class="user-level">Administrator</span>
+                                <span class="caret"></span>
+                            </span>
+                        </a>
+                        <div class="clearfix"></div>
+                        <div class="collapse in" id="collapseExample">
+                            <ul class="nav">
+                                <li>
+                                    <a href="#profile">
+                                        <span class="link-collapse">My Profile</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#edit">
+                                        <span class="link-collapse">Edit Profile</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#settings">
+                                        <span class="link-collapse">Settings</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav nav-primary">
+                    <li class="nav-item">
+                        <a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
+                            <i class="fas fa-home"></i>
+                            <p>Dashboard</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse" id="dashboard">
+                            <ul class="nav nav-collapse">
+                                <li>
+                                    <a href="#dashboard1">
+                                        <span class="sub-item">Dashboard 1</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#dashboard2">
+                                        <span class="sub-item">Dashboard 2</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+                    <li class="nav-section">
+                        <span class="sidebar-mini-icon">
+                            <i class="fa fa-ellipsis-h"></i>
+                        </span>
+                        <h4 class="text-section">Components</h4>
+                    </li>
+                    <li class="nav-item submenu" ng-repeat="nav in navs | filterPId: 'nav999'">
+                        <a data-toggle="collapse" href="#{{nav.id}}">
+                            <i class="fas {{nav.icon}}"></i>
+                            <p ng-bind="nav.name">菜单名称</p>
+                            <span class="badge badge-success"></span>
+                        </a>
+                        <div class="collapse " id="{{nav.id}}">
+                            <ul class="nav nav-collapse">
+                                <li ng-repeat="sub in navs | filterPId:nav.id">
+                                    <a ng-href="{{sub.href}}">
+                                        <span class="sub-item" ng-bind="sub.name">sub nva name</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="scroll-element scroll-x scroll-scrolly_visible">
+            <div class="scroll-element_outer">
+                <div class="scroll-element_size"></div>
+                <div class="scroll-element_track"></div>
+                <div class="scroll-bar ui-draggable ui-draggable-handle" style="width: 88px;"></div>
+            </div>
+        </div>
+        <div class="scroll-element scroll-y scroll-scrolly_visible">
+            <div class="scroll-element_outer">
+                <div class="scroll-element_size"></div>
+                <div class="scroll-element_track"></div>
+                <div class="scroll-bar ui-draggable ui-draggable-handle" style="height: 982px; top: 0px;"></div>
+            </div>
+        </div>
+    </div>
+</div>

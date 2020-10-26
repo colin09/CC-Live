@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>C-V</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no" name="viewport">
+    <link rel="icon" href="./Assets/images/icon.ico" type="image/x-icon">
+
+    <!-- Fonts and icons -->
+    <script src="./Assets/lib/webfont/js/webfont.min.js"></script>
+    <link rel="stylesheet" href="./Assets/lib/webfont/css/fonts.min.css" media="all">
+    <link rel="stylesheet" href="./Assets/lib/webfont/css/fontface.css" media="all">
+
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="./Assets/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./Assets/lib/animate/css/animate.min.css">
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link rel="stylesheet" href="./Assets/css/demo.css">
+</head>
+
+<body data-background-color="bg1" ng-app="cvApp">
+    <div class="wrapper">
+        <!-- main-header -->
+        <main-header></main-header>
+        <!-- Sidebar -->
+        <main-sidebar></main-sidebar>
+
+        <div class="main-panel">
+            <div class="content">
+                <div class="page-inner">
+                    <div class="page-header">
+                        <h4 class="page-title">Notifications</h4>
+                        <ul class="breadcrumbs">
+                            <li class="nav-home">
+                                <a href="##">
+                                    <i class="flaticon-home"></i>
+                                </a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="##">Base</a>
+                            </li>
+                            <li class="separator">
+                                <i class="flaticon-right-arrow"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="##">Notifications</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <ng-view></ng-view>
+                </div>
+            </div>
+            <main-footer></main-footer>
+        </div>
+
+        <!-- Custom template | don't include it in your project! -->
+        <div class="custom-template">
+            <div class="title">Settings</div>
+            <div class="custom-content">
+                <div class="switcher">
+                    <div class="switch-block">
+                        <h4>Logo Header</h4>
+                        <div class="btnSwitch">
+                            <button type="button" class="changeLogoHeaderColor" data-color="dark"></button>
+                            <button type="button" class="changeLogoHeaderColor" data-color="blue"></button>
+                            <button type="button" class="changeLogoHeaderColor" data-color="purple"></button>
+                            <button type="button" class="changeLogoHeaderColor" data-color="light-blue"></button>
+                            <button type="button" class="changeLogoHeaderColor selected" data-color="green"></button>
+                            <button type="button" class="changeLogoHeaderColor" data-color="orange"></button>
+                            <button type="button" class="changeLogoHeaderColor" data-color="red"></button>
+                            <button type="button" class="changeLogoHeaderColor" data-color="white"></button>
+                            <br>
+                            <button type="button" class="changeLogoHeaderColor" data-color="dark2"></button>
+                            <button type="button" class="changeLogoHeaderColor" data-color="blue2"></button>
+                            <button type="button" class="changeLogoHeaderColor" data-color="purple2"></button>
+                            <button type="button" class="changeLogoHeaderColor" data-color="light-blue2"></button>
+                            <button type="button" class="changeLogoHeaderColor" data-color="green2"></button>
+                            <button type="button" class="changeLogoHeaderColor" data-color="orange2"></button>
+                            <button type="button" class="changeLogoHeaderColor" data-color="red2"></button>
+                        </div>
+                    </div>
+                    <div class="switch-block">
+                        <h4>Navbar Header</h4>
+                        <div class="btnSwitch">
+                            <button type="button" class="changeTopBarColor" data-color="dark"></button>
+                            <button type="button" class="changeTopBarColor" data-color="blue"></button>
+                            <button type="button" class="changeTopBarColor" data-color="purple"></button>
+                            <button type="button" class="changeTopBarColor" data-color="light-blue"></button>
+                            <button type="button" class="changeTopBarColor" data-color="green"></button>
+                            <button type="button" class="changeTopBarColor" data-color="orange"></button>
+                            <button type="button" class="changeTopBarColor" data-color="red"></button>
+                            <button type="button" class="changeTopBarColor" data-color="white"></button>
+                            <br>
+                            <button type="button" class="changeTopBarColor" data-color="dark2"></button>
+                            <button type="button" class="changeTopBarColor" data-color="blue2"></button>
+                            <button type="button" class="changeTopBarColor selected" data-color="purple2"></button>
+                            <button type="button" class="changeTopBarColor" data-color="light-blue2"></button>
+                            <button type="button" class="changeTopBarColor" data-color="green2"></button>
+                            <button type="button" class="changeTopBarColor" data-color="orange2"></button>
+                            <button type="button" class="changeTopBarColor" data-color="red2"></button>
+                        </div>
+                    </div>
+                    <div class="switch-block">
+                        <h4>Sidebar</h4>
+                        <div class="btnSwitch">
+                            <button type="button" class="changeSideBarColor selected" data-color="white"></button>
+                            <button type="button" class="changeSideBarColor" data-color="dark"></button>
+                            <button type="button" class="changeSideBarColor" data-color="dark2"></button>
+                        </div>
+                    </div>
+                    <div class="switch-block">
+                        <h4>Background</h4>
+                        <div class="btnSwitch">
+                            <button type="button" class="changeBackgroundColor" data-color="bg2"></button>
+                            <button type="button" class="changeBackgroundColor" data-color="bg1"></button>
+                            <button type="button" class="changeBackgroundColor selected" data-color="bg3"></button>
+                            <button type="button" class="changeBackgroundColor" data-color="dark"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="custom-toggle toggled">
+                <i class="flaticon-settings"></i>
+            </div>
+        </div>
+        <!-- End Custom template -->
+    </div>
+    <!--   Core JS Files   -->
+    <script src="./Assets/lib/jquery/jquery.3.2.1.min.js"></script>
+    <script src="./Assets/lib/jquery/jquery-ui.min.js"></script>
+    <script src="./Assets/lib/jquery/jquery.ui.touch-punch.min.js"></script>
+    <script src="./Assets/lib/jquery/jquery.scrollbar.min.js"></script>
+
+    <script src="./Assets/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./Assets/lib/bootstrap/dist/js/bootstrap-notify.min.js"></script>
+
+    <script src="./Assets/scripts/popper.min.js"></script>
+    <script src="./Assets/lib/animate/js/animate.min.js"></script>
+
+    <script src="./Assets/lib/angular/angular.min.js"></script>
+    <script src="./Assets/lib/angular/angular-sanitize.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/angular-route/1.7.8/angular-route.min.js"></script>
+
+    <script src="./Assets/scripts/config.js"></script>
+    <script src="./Assets/scripts/mApp.js"></script>
+    <script src="./Assets/scripts/directives.js"></script>
+    <script src="./Assets/scripts/controllers.js"></script>
+
+    <!-- Atlantis DEMO methods, don't include it in your project! -->
+    <script src="./Assets/scripts/setting-demo2.js"></script>
+</body>
+
+</html>
