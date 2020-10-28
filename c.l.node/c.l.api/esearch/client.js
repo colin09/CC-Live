@@ -1,11 +1,11 @@
 const { Client } = require('@elastic/elasticsearch')
-
 const address = 'http://172.16.1.197:9200/'
 
 // npm install @elastic/elasticsearch
 
 
-function init() {
+async function init() {
+    /*
     var client = new Client({
         node: address,
         maxRetries: 5,
@@ -19,34 +19,33 @@ function init() {
         //   ca: fs.readFileSync('./cacert.pem'),
         //   rejectUnauthorized: true
         // }
-    })
+    })*/
+    var client = new Client({ node: address });
     return client;
 }
 
 async function index(index, type, body) {
-    var client = init();
-    await client.index({ index: index, type: type, body: body });
+    var client = await init();
+    await client.index({ refresh: true, index: index, type: type, body: body });
+}
+
+async function bulk(index, type, list) {
+    var client = await init();
+
+    var body = list.flatMap(doc => [{ index: { _index: index } }, doc])
+    var { body: bulkResponse } = await client.bulk({ refresh: true, index: index, type: type, body: body })
 }
 
 async function search(index, type, body) {
-    // var client = init();
-    
-    // await client.indices.refresh({ index: 'game-of-thrones' })
-    // var body = await client.search({ index: index, type: type, body: body });
-    
-    const client = new Client({ node: address })
-    var { body }  = await client.search({
-        index: 'game-of-thrones',
-        type: 'game', // uncomment this line if you are using {es} ≤ 6
-        body: {
-            query: {
-                match: { quote: 'winter' }
-            }
-        }
+    var client = await init();
+    var { body } = await client.search({ index: index, type: type, body: body });
+
+    console.log(body)
+    var result = [];
+    body.hits.hits.forEach(hit => {
+        result.push(hit._source);
     });
-    console.log(body.hits)
-    return body;
-    // return { totalCount: body.hits.total, result: body.hits.hits };
+    return { totalCount: body.hits.total, result: result };
 }
 
 
@@ -112,6 +111,7 @@ async function run() {
 
 module.exports = {
     index,
+    bulk,
     search
 };
 
