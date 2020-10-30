@@ -1,3 +1,6 @@
+<link href="https://unpkg.com/video.js/dist/video-js.min.css" rel="stylesheet">
+<script src="https://unpkg.com/video.js/dist/video.min.js"></script>
+
 <div class="row">
     <div class="col-sm-10">
         <div class=" input-group">
@@ -15,19 +18,19 @@
 </div>
 <br />
 <div class="row">
-    <div class="col-sm-6 col-md-3">
+    <div class="col-sm-6 col-md-3" ng-repeat="item in list">
         <div class="card card-stats card-round">
             <div class="card-body ">
                 <div class="row align-items-center">
                     <div class="col-icon">
-                        <div class="icon-big text-center icon-primary bubble-shadow-small">
-                            <i class="flaticon-users"></i>
+                        <div class="icon-big text-center icon-primary bubble-shadow-small" ng-click="alert()">
+                            <i class="flaticon-youtube"></i>
                         </div>
                     </div>
                     <div class="col col-stats ml-3 ml-sm-0">
                         <div class="numbers">
-                            <p class="card-category">Visitors</p>
-                            <h4 class="card-title">1,294</h4>
+                            <h4 class="card-title" ng-bind="item.name">1,294</h4>
+                            <p class="card-category" ng-bind="item.date">Visitors</p>
                         </div>
                     </div>
                 </div>
@@ -93,3 +96,29 @@
     </div>
 </div>
 <pager></pager>
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <video id="my-player" class="video-js vjs-default-skin" controls preload="none" width="90%"
+                    height="90%" poster="http://vjs.zencdn.net/v/oceans.png">
+                    <source src="./Assets/lib/videos/oceans.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Understood</button>
+            </div>
+        </div>
+    </div>
+</div>

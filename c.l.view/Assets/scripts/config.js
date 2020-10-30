@@ -3,7 +3,7 @@
  * 
  */
 
-var navications = [
+const navications = [
     { id: 'cv100', pId: 'nav999', name: 'Resource', desc: '', alt: "", icon: 'fa-layer-group', img: '', href: '#' },
     { id: 'cv101', pId: 'cv100', name: 'Videos', desc: '', alt: "", icon: '', img: '', href: '#!/videos' },
 
@@ -22,7 +22,7 @@ var navications = [
     { id: 'nav103', pId: 'nav100', name: 'Grid System', desc: '', alt: "", icon: '', img: '', href: '#gridsystem.html' },
     { id: 'nav104', pId: 'nav100', name: 'Panels', desc: '', alt: "", icon: '', img: '', href: '#panels.html' },
     { id: 'nav105', pId: 'nav100', name: 'Notifications', desc: '', alt: "", icon: '', img: '', href: '#notifications.html' },
-    { id: 'nav106', pId: 'nav100', name: 'Sweet Alert', desc: '', alt: "", icon: '', img: '', href: '#sweetalert.html' },
+    { id: 'nav106', pId: 'nav100', name: 'Sweet Alert', desc: '', alt: "", icon: '', img: '', href: '#!/sweetalert' },
     { id: 'nav107', pId: 'nav100', name: 'Font Awesome Icons', desc: '', alt: "", icon: '', img: '', href: '#font-awesome-icons.html' },
     { id: 'nav108', pId: 'nav100', name: 'Simple Line Icons', desc: '', alt: "", icon: '', img: '', href: '#simple-line-icons.html' },
     { id: 'nav109', pId: 'nav100', name: 'Flaticons', desc: '', alt: "", icon: '', img: '', href: '#flaticons.html' },
@@ -44,5 +44,16 @@ var navications = [
     { id: 'nav601', pId: 'nav600', name: 'Chart Js', desc: '', alt: "", icon: '', img: '', href: '' },
     { id: 'nav602', pId: 'nav600', name: 'Sparkline', desc: '', alt: "", icon: '', img: '', href: '' },
 
-
 ];
+
+
+
+const apiDomain = 'http://127.0.0.1:3000';
+
+const apiUrls = {
+    resource_media_flash: apiDomain + '/medias/flash',
+    resource_media_search: apiDomain + '/medias/search/',
+}
+
+
+

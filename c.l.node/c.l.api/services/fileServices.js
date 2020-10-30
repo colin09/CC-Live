@@ -1,9 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-var esearch = require('../esearch/client');
-
-var ROOT_PATH = path.resolve(__dirname);
-console.log('ROOT_PATH: ' + ROOT_PATH);
+var esResource = require('../esearch/esResource');
 
 
 async function scanDirctory(directory) {
@@ -22,7 +19,7 @@ async function indexDirctory(directory) {
     //解析需要遍历的文件夹，我这以E盘根目录为例
     var filePath = path.resolve(directory);
     var fileList = await fileDisplay1(filePath, 0);
- 
+
     var files = fileList.filter(m => m.type == 'file');
     var totalCount = files.length;
     var pageSize = 1000;
@@ -30,7 +27,7 @@ async function indexDirctory(directory) {
     for (var pageIndex = 0; pageIndex < pageCount; pageIndex++) {
         var offset = pageIndex * pageSize;
         var pageData = (offset + pageSize >= totalCount) ? files.slice(offset, totalCount) : files.slice(offset, offset + pageSize);
-        esearch.bulk('resource', 'dir', pageData);
+        esResource.bulk(pageData);
     }
 
     return files.length;

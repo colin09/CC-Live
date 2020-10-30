@@ -34,6 +34,7 @@ async function bulk(index, type, list) {
 
     var body = list.flatMap(doc => [{ index: { _index: index } }, doc])
     var { body: bulkResponse } = await client.bulk({ refresh: true, index: index, type: type, body: body })
+    return bulkResponse
 }
 
 async function search(index, type, body) {
