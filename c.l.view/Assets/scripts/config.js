@@ -51,8 +51,10 @@ const navications = [
 const apiDomain = 'http://127.0.0.1:3000';
 
 const apiUrls = {
-    resource_media_flash: apiDomain + '/medias/flash',
-    resource_media_search: apiDomain + '/medias/search/',
+    es_media_flash: apiDomain + '/medias/flash',
+    es_media_search: apiDomain + '/medias/search/',
+    mongo_media_flash: apiDomain + '/m/flash',
+    mongo_media_search: apiDomain + '/m/search/',
 }
 
 

@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 var esResource = require('../esearch/esResource');
+var mongo = require('../mongo/client');
 
 
 async function scanDirctory(directory) {
@@ -27,7 +28,8 @@ async function indexDirctory(directory) {
     for (var pageIndex = 0; pageIndex < pageCount; pageIndex++) {
         var offset = pageIndex * pageSize;
         var pageData = (offset + pageSize >= totalCount) ? files.slice(offset, totalCount) : files.slice(offset, offset + pageSize);
-        esResource.bulk(pageData);
+        //esResource.bulk(pageData);
+        mongo.insertMany('t',pageData)
     }
 
     return files.length;
