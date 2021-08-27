@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\C.L.Common\c.l.common\c.l.common.csproj" />
+    <ProjectReference Include="..\..\C.L.Common\c.l.models\c.l.models.csproj" />
+    <ProjectReference Include="..\..\C.L.Business\c.l.esearch\c.l.esearch.csproj" />
+    <ProjectReference Include="..\..\C.L.Business\c.l.spider\c.l.spider.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -22,12 +22,12 @@ namespace c.l.fileScan.handler
             esResourceService = new EsResourceService();
         }
         public void Excute()
-
         { 
             var sections=  AppSettingConfig.GetChildren("ResourceList");
             foreach(var item in sections){
-                var rootPath = AppSettingConfig.Get($"{item.Path}:root");
-                var urlPath = AppSettingConfig.Get($"{item.Path}:url");
+                rootPath = AppSettingConfig.Get($"{item.Path}:root");
+                urlPath = AppSettingConfig.Get($"{item.Path}:url");
+                System.Console.WriteLine($"start path:{rootPath}, url:{urlPath}");
                 ReadDirectory(rootPath);
             }
             /*
@@ -65,7 +65,7 @@ namespace c.l.fileScan.handler
             var list = new List<EsResource>();
             foreach (var file in files)
             {
-                //System.Console.WriteLine($"name : {file.Name} , Extension : {file.Extension}, fullName:  {file.FullName} ");
+                System.Console.WriteLine($"name : {file.Name}");
                 var sourceType = GetSourceType(file.Extension);
                 if (sourceType == SourceType.None) continue;
 

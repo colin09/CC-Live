@@ -17,10 +17,13 @@ namespace c.l.esearch.service
                .Index(_indexName)
                .From((page.PageIndex - 1) * page.PageSize)
                .Size(page.PageSize)
+               .Sort(st => st.Ascending(f => f.Sort)).Sort(st => st.Descending(f => f.CreateTime))
                .Query(q =>
                    {
                        var query = q.Range(m => m.Field(f => f.EncryptionLevel).LessThanOrEquals(entryption));
                        query = query & q.Match(m => m.Field(f => f.Tags).Query(key));
+
+                       System.Console.WriteLine($"{query.ToString()}");
                        return query;
                    })
             );

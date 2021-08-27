@@ -7,6 +7,7 @@ using c.l.esearch.service;
 using c.l.models.bases;
 using c.l.web.Models;
 using c.l.common.Mvc;
+using c.l.common.helper;
 using Microsoft.AspNetCore.Mvc;
 using c.l.esearch.data;
 
@@ -42,11 +43,14 @@ namespace c.l.web.Controllers
 
         [HttpPost]
         public IActionResult Modify([FromBody]EsResource model){
-
+            System.Console.WriteLine($"-------> model: {model.ToJson()}");
+            if(model.Id.IsEmpty()) return Json(BaseResponse.ErrorResponse("id is null"));
             var resource = _resourceService.Get(model.Id);
             resource.Name= model.Name;
             resource.Tags = model.Tags;
             resource.UpdateTime = DateTime.Now;
+
+            System.Console.WriteLine($"---> resource : {resource.ToJson()}");
             _resourceService.Index(resource);
 
             return Json(BaseResponse.SuccessResponse());
