@@ -6,6 +6,7 @@
 const navications = [
     { id: 'cv100', pId: 'nav999', name: 'Resource', desc: '', alt: "", icon: 'fa-layer-group', img: '', href: '#' },
     { id: 'cv101', pId: 'cv100', name: 'Videos', desc: '', alt: "", icon: '', img: '', href: '#!/videos' },
+    { id: 'cv102', pId: 'cv100', name: 'Clash', desc: '', alt: "", icon: '', img: '', href: '#!/Clash' },
 
     { id: 'nav100', pId: 'nav999', name: 'Base', desc: '', alt: "", icon: 'fa-layer-group', img: '', href: '#' },
     { id: 'nav200', pId: 'nav999', name: 'Sidebar Layouts', desc: '', alt: "", icon: 'fa-th-list', img: '', href: '#' },

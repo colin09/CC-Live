@@ -39,7 +39,7 @@ cvApp.controller('videoCtr', function ($scope, $http) {
             //数据请求失败
             console.log(err);
         });*/
-        const httpOptions = {headers:{,'Content-Type':'application/json'}};
+        const httpOptions = {headers:{'Content-Type':'application/json'}};
         $http.post(apiUrls.mongo_media_search, { key: $scope.key, pIndex: 1, pSize: 20 },httpOptions).then(function (result) {
             var response = result.data;
             if (response.success) {
