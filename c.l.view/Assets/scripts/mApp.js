@@ -5,7 +5,7 @@ cvApp.config(function ($routeProvider) {
     $routeProvider
         .when('/dashboard', { templateUrl: "./views/dashboard.html", controller: "dashboardCtr" })
         .when('/videos', { templateUrl: "./views/resource/video.html", controller: "videoCtr" })
-        .when('/Clash', { templateUrl: "./views/resource/clash.html" })
+        .when('/Clash', { templateUrl: "./views/resource/clash2.html", controller: "clashCtr" })
 
         /***** demo start */
         .when('/sweetalert', { templateUrl: "./views/demos/sweetAlert.html", controller: "demoCtr" })

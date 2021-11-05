@@ -1,0 +1,190 @@
+<link rel="stylesheet" href="./Assets/lib/clash/index.c7a648b5.css">
+
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="root">
+  <div class="app not-clashx row">
+    <div class="sidebar col-md-1"><img src="./Assets/lib/clash/logo.b453e72f.png" alt="logo" class="sidebar-logo">
+      <ul class="sidebar-menu">
+        <li class="item"><a href="https://clash.razord.top/#/proxies" aria-current="page" class="active">代理</a></li>
+        <li class="item"><a href="https://clash.razord.top/#/logs">日志</a></li>
+        <li class="item no-mobile"><a href="https://clash.razord.top/#/rules">规则</a></li>
+        <li class="item no-mobile"><a href="https://clash.razord.top/#/connections">连接</a></li>
+        <li class="item"><a href="https://clash.razord.top/#/settings">设置</a></li>
+      </ul>
+      <div class="sidebar-version"><span class="sidebar-version-label">Clash 版本</span>
+        <span class="sidebar-version-text" ng-text="version">v1.0.0</span>
+      </div>
+    </div>
+    <div class="page-container col-md-11">
+      <div class="page">
+        <div class="flex flex-col">
+          <header class="header">
+            <h1 class="md:text-xl">策略组</h1>
+            <div class="flex flex-auto items-center justify-end">
+              <div class="checkbox text-primary-600 text-sm text-shadow-primary cursor-pointer"><i
+                  class="clash-iconfont icon-check checkbox-icon" type="check" size="18" style="font-size: 18px;"></i>
+                <div>切换时打断包含策略组的连接</div>
+              </div>
+            </div>
+          </header>
+          <div class="card my-2.5 md:my-4 p-0">
+            <ul class="list-none">
+              <li class="proxies-group-item">
+                <div class="proxy-group">
+                  <div class="w-full h-10 flex items-center justify-between md:h-15 md:mt-0 md:w-auto">
+                    <span class="overflow-hidden overflow-ellipsis whitespace-nowrap px-5 h-6 w-40">Proxy</span>
+                    <span class="tag mr-5 md:mr-0">Selector</span>
+                  </div>
+                  <div class="md:py-4 flex-1">
+                    <div class="flex items-start overflow-y-hidden">
+                      <ul class="tags">
+                        <li ng-class="item.cursor" ng-repeat="item in proxies" ng-click="putProxy(item)">{{item.name}}
+                        </li>
+                      </ul>
+                      <span class="h-7 px-5 select-none cursor-pointer leading-7">展开</span>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="proxies-group-item">
+                <div class="proxy-group">
+                  <div class="w-full h-10 flex items-center justify-between md:h-15 md:mt-0 md:w-auto"><span
+                      class="overflow-hidden overflow-ellipsis whitespace-nowrap px-5 h-6 w-40">Domestic</span><span
+                      class="tag mr-5 md:mr-0">Selector</span></div>
+                  <div class=" md:py-4 flex-1">
+                    <div class="flex items-start overflow-y-hidden">
+                      <ul class="tags">
+                        <li class="tags-selected cursor-pointer">DIRECT</li>
+                        <li class="cursor-pointer">Proxy</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="proxies-group-item">
+                <div class="proxy-group">
+                  <div class="w-full h-10 flex items-center justify-between md:h-15 md:mt-0 md:w-auto"><span
+                      class="overflow-hidden overflow-ellipsis whitespace-nowrap px-5 h-6 w-40">AsianTV</span><span
+                      class="tag mr-5 md:mr-0">Selector</span></div>
+                  <div class=" md:py-4 flex-1">
+                    <div class="flex items-start overflow-y-hidden">
+                      <ul class="tags">
+                        <li class="tags-selected cursor-pointer">Domestic</li>
+                        <li class="cursor-pointer">Proxy</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="proxies-group-item">
+                <div class="proxy-group">
+                  <div class="w-full h-10 flex items-center justify-between md:h-15 md:mt-0 md:w-auto"><span
+                      class="overflow-hidden overflow-ellipsis whitespace-nowrap px-5 h-6 w-40">GlobalTV</span><span
+                      class="tag mr-5 md:mr-0">Selector</span></div>
+                  <div class=" md:py-4 flex-1">
+                    <div class="flex items-start overflow-y-hidden">
+                      <ul class="tags">
+                        <li class="tags-selected cursor-pointer">Proxy</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="proxies-group-item">
+                <div class="proxy-group">
+                  <div class="w-full h-10 flex items-center justify-between md:h-15 md:mt-0 md:w-auto"><span
+                      class="overflow-hidden overflow-ellipsis whitespace-nowrap px-5 h-6 w-40">Others</span><span
+                      class="tag mr-5 md:mr-0">Selector</span></div>
+                  <div class=" md:py-4 flex-1">
+                    <div class="flex items-start overflow-y-hidden">
+                      <ul class="tags">
+                        <li class="tags-selected cursor-pointer">Proxy</li>
+                        <li class="cursor-pointer">Domestic</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <header class="header">
+            <h1 class="md:text-xl">代理</h1>
+            <div class="flex flex-auto items-center justify-end">
+              <i class="clash-iconfont icon-sort-ascending ml-3" type="sort-ascending" size="20"
+                style="font-size: 20px;"></i>
+              <i class="clash-iconfont icon-speed ml-3" type="speed" size="20" style="font-size: 20px;"></i>
+              <span class="proxies-speed-test" ng-click="checkDelay()">测速</span>
+            </div>
+          </header>
+          <ul class="proxies-list">
+            <li ng-repeat="item in proxies">
+              <div ng-class="item.delay>0 ? 'proxy-item' : 'proxy-item proxy-error' ">
+                <span class="proxy-type" style="{{item.style}}">{{item.type}}</span>
+                <p class="proxy-name">{{item.name}}</p>
+                <p class="proxy-delay" ng-if="item.delay>0">{{item.delay}}</p>
+                <p class="proxy-delay" ng-if="item.delay<=0">-</p>
+              </div>
+            </li>
+            <li>
+              <div class="proxy-item"><span class="proxy-type" style="background-color: rgb(0, 197, 32);">Vmess</span>
+                <p class="proxy-name">日本2 SoftBank&lt;常州联通</p>
+                <p class="proxy-delay">232ms</p>
+              </div>
+            </li>
+            <li>
+              <div class="proxy-item"><span class="proxy-type" style="background-color: rgb(255, 154, 40);">Vmess</span>
+                <p class="proxy-name">韩国2 CN2</p>
+                <p class="proxy-delay">280ms</p>
+              </div>
+            </li>
+            <li>
+              <div class="proxy-item"><span class="proxy-type" style="background-color: rgb(255, 62, 94);">Vmess</span>
+                <p class="proxy-name">韩国1 SK</p>
+                <p class="proxy-delay">769ms</p>
+              </div>
+            </li>
+            <li>
+              <div class="proxy-item proxy-error">
+                <span class="proxy-type">Vmess</span>
+                <p class="proxy-name">!!每次使用前请先更新订阅!!</p>
+                <p class="proxy-delay">-</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div>
+  <div class="modal-mask">
+    <div class="modal modal-small">
+      <div class="modal-title">编辑外部控制设置</div>
+      <div class="modal-body external-controller">
+        <div class="alert alert-note-info"><span class="alert-icon"><i type="info" size="26"
+              class="clash-iconfont icon-info" style="font-size: 26px;"></i></span>
+          <div class="alert-message">
+            <p>请注意，修改该配置项并不会修改你的 Clash 配置文件，请确认修改后的外部控制地址和 Clash 配置文件内的地址一致，否则会导致 Dashboard 无法连接。</p>
+          </div>
+        </div>
+        <div class="flex items-center"><span class="md:my-3 w-14 my-1 font-bold">Host</span><input
+            class="input text-left focus:shadow-none md:my-3 flex-1 my-1" type="text" value="127.0.0.1"></div>
+        <div class="flex items-center">
+          <div class="md:my-3 w-14 my-1 font-bold">端口</div><input
+            class="input text-left focus:shadow-none md:my-3 w-14 my-1 flex-1" type="text" value="9090">
+        </div>
+        <div class="flex items-center">
+          <div class="md:my-3 w-14 my-1 font-bold">密钥</div><input
+            class="input text-left focus:shadow-none md:my-3 w-14 my-1 flex-1" type="text" value="">
+        </div>
+      </div>
+      <div class="footer"><button class="button button-normal">取 消</button><button class="button button-primary">确
+          定</button></div>
+    </div>
+  </div>
+</div>
